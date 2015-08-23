@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     # Do we really need to define post?
     post = Post.find(params[:post_id])
     comment = Comment.find(params[:id])
-    comment.upvote += 1
+    comment.increment!(:upvotes)
 
     respond_with post, comment
   end

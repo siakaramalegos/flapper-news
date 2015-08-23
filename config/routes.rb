@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path' => 'application#index'
+  # get '*path' => 'application#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

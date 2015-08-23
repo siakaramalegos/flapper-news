@@ -4,6 +4,19 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#index'
+
+  resources :posts, only: [:create, :index, :show] do
+    resources :comments, only: [:show, :create] do
+      member do
+        put '/upvote' => 'comments#upvote'
+      end
+    end
+
+    member do
+      put '/upvote' => 'posts#upvote'
+    end
+  end
+
   get '*path' => 'application#index'
 
   # Example of regular route:
